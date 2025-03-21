@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a; /* Dark background for gothic feel */
+            color: white;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #121212; /* Darker header */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            animation: slideIn 1s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+            animation: logoFadeIn 1s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #444;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: #9b4d96; /* Dark purple accent */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-form {
+            background: #222; /* Dark form background */
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #bbb; /* Light gray text for labels */
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            background: #333; /* Darker input fields */
+            color: white;
+            animation: fieldFocus 0.5s ease-out;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #9b4d96; /* Dark purple focus border */
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        .contact-form button {
+            background: #9b4d96; /* Dark purple button */
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            animation: buttonHover 0.3s ease-out;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #bbb; /* Light gray text */
+        }
+
+        .contact-info a {
+            color: #9b4d96; /* Dark purple accent links */
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #121212;
+            color: #bbb;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .footer-left p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-right p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .footer-right a {
+            color: #9b4d96;
+            text-decoration: none;
+        }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left,
+            .footer-right {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes logoFadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fieldFocus {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes buttonHover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">CHAOS</a>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">UNISEX</a>
+                    <div class="dropdown-content">
+                        <a href="men.html">Clothing</a>
+                        <a href="accessories-men.html">Accessories</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">MEN</a>
+                    <div class="dropdown-content">
+                        <a href="men.html">Men's Clothing</a>
+                        <a href="accessories-men.html">Men's Accessories</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">WOMEN</a>
+                    <div class="dropdown-content">
+                        <a href="women.html">Women's Clothing</a>
+                        <a href="accessories-women.html">Women's Accessories</a>
+                    </div>
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Please fill out the form below to get in touch.</p>
+        </div>
+        <div class="contact-form">
+            <form id="contactForm" onsubmit="return sendEmail(event)">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function sendEmail(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+            const mailtoInfo = `mailto:chaosdesignerslk@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+            window.open(mailtoInfo, '_blank');
+            document.getElementById('contactForm').reset();
+            alert('Email client opened!');
+            
+            return false;
+        }
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2025 CHAOS. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <p>Contact Us:</p>
+                <p>Email: <a href="mailto:chaosdesignerslk@gmail.com">chaosdesignerslk@gmail.com</a></p>
+                <p>Phone: 
+                    <a href="https://wa.me/947189942554" target="_blank">+94 71 899 4254</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

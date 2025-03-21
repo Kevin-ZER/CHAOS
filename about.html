@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | CHAOS</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000; /* Black Background */
+            color: #fff; /* White Text */
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            animation: headerAnimation 2s ease-in-out; /* Animation */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+            animation: logoAnimation 1s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-right: 20px;
+            animation: menuItemAnimation 1s ease-in-out;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Styles */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #444;
+        }
+
+        /* About Section */
+        .about-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: aboutContainerAnimation 2s ease-in-out;
+        }
+
+        /* Background with WhatsApp Image Overlay */
+        .about-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('WhatsApp Image 2025-03-20 at 17.50.32_c3d373ac.jpg') no-repeat center;
+            background-size: cover;
+            opacity: 0.15; /* Semi-transparent effect */
+            z-index: -2;
+        }
+
+        /* Animated padding effect */
+        .about-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 17, 17, 0.7); /* Slight black tint */
+            border-radius: inherit;
+            z-index: -1;
+            animation: padAnimation 3s infinite alternate;
+        }
+
+        .about-container h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .about-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #ddd;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 2s ease-out;
+        }
+
+        /* Image Styling */
+        .about-container img {
+            width: 25%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid rgba(0, 0, 0, 0.5); /* Black transparent border */
+            margin-top: 20px;
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            position: relative;
+            z-index: 1;
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        .about-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes padAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes headerAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes logoAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes menuItemAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes aboutContainerAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">CHAOS</a>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">UNISEX</a>
+                <div class="dropdown-content">
+                    <a href="men.html">Clothing</a>
+                    <a href="accessories-men.html">Accessories</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">MEN</a>
+                <div class="dropdown-content">
+                    <a href="men.html">Men's Clothing</a>
+                    <a href="accessories-men.html">Men's Accessories</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">WOMEN</a>
+                <div class="dropdown-content">
+                    <a href="women.html">Women's Clothing</a>
+                    <a href="accessories-women.html">Women's Accessories</a>
+                </div>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="about-container">
+    <h1>Welcome to CHAOS</h1>
+    <p>About Chaos Designers
+
+        At Chaos Designers, we believe that true creativity is born from contrast—where order meets disruption, and simplicity meets bold expression. Our brand is more than just fashion; it’s a statement of individuality, confidence, and fearless self-expression.
+        
+        Inspired by the raw energy of street style and the elegance of minimalism, we craft high-quality apparel designed for those who dare to stand out. Every piece is a blend of premium fabrics, timeless aesthetics, and modern edge—perfect for trendsetters who embrace the beauty of chaos.
+        
+        Join the movement. Wear the chaos.</p>
+    <img src="ww.png" alt="Fashion Image">
+<p></p>
+    <p>Founded in 2025, CHAOS was born from a passion for creativity and bold fashion statements. Our journey started with a simple idea: to bring high-quality, stylish apparel to those who dare to be different. Since then, we have grown into a brand that stands for innovation, authenticity, and fearless self-expression.</p>
+</section>
+
+<footer>
+    &copy; 2025 CHAOS. All rights reserved.
+</footer>
+
+</body>
+</html>
